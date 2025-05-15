@@ -157,7 +157,7 @@ struct BlobHandle {
 //    +------+-------------+-----------------------------------------------------+
 //    | type | file number |                    blob handle                      |
 //    +------+-------------+-----------------------------------------------------+
-//    | char |  Varint64   | Varint64(offsest) + Varint64(size) + Varint64(order)|
+//    | char |  Varint64   | Varint64(offset) + Varint64(size) + Varint64(order)|
 //    +------+-------------+-----------------------------------------------------+
 //
 // It is stored in LSM-Tree as the value of key, then Titan can use this blob
