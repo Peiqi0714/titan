@@ -13,7 +13,7 @@ do
     rm -rf /users/peiqi714/test/db/*
     ../rocksdb_6_29/build/db_bench --benchmarks=fillrandom,stats,overwrite,stats,overwrite,stats,overwrite,stats  --db=/users/peiqi714/test/db/db --threads=$thread_count \
                     --statistics=true  --num=$entry_count  --zipfian=1 --zipf_const=$skewness \
-                    --key_size=16 --value_size=f --compression_type=none --compression_ratio=1 > /users/peiqi714/test/skew_log/rocksdb_skew${skewness}
+                    --key_size=16 --value_size=1024 --compression_type=none --compression_ratio=1 > /users/peiqi714/test/skew_log/rocksdb_skew${skewness}
     echo "rocksdb_skew${skewness} space:" >> /users/peiqi714/test/skew_log/space_util_skew
     du -k --max-depth=0 /users/peiqi714/test/db/db >> /users/peiqi714/test/skew_log/space_util_skew
     cp -f /users/peiqi714/test/db/db/LOG /users/peiqi714/test/skew_log/rocksdb_skew${skewness}_LOG
