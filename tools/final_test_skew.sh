@@ -11,7 +11,7 @@ do
 
     # rocksdb
     rm -rf /users/peiqi714/test/db/*
-    ../rocksdb_6_29/build/db_bench --benchmarks=fillrandom,stats,overwrite,stats,overwrite,stats,overwrite,stats  --db=/users/peiqi714/test/db/db --threads=$thread_count \
+    ../rocksdb_6_29/build/db_bench --benchmarks=fillrandom,stats,overwrite,stats  --db=/users/peiqi714/test/db/db --threads=$thread_count \
                     --statistics=true  --num=$entry_count  --zipfian=1 --zipf_const=$skewness \
                     --key_size=16 --value_size=1024 --compression_type=none --compression_ratio=1 > /users/peiqi714/test/skew_log/rocksdb_skew${skewness}
     echo "rocksdb_skew${skewness} space:" >> /users/peiqi714/test/skew_log/space_util_skew
@@ -20,7 +20,7 @@ do
 
     # blobdb
     rm -rf /users/peiqi714/test/db/*
-    ../rocksdb_6_29/build/db_bench --benchmarks=fillrandom,stats,overwrite,stats,overwrite,stats,overwrite,stats  --db=/users/peiqi714/test/db/db --threads=$thread_count \
+    ../rocksdb_6_29/build/db_bench --benchmarks=fillrandom,stats,overwrite,stats  --db=/users/peiqi714/test/db/db --threads=$thread_count \
                     --statistics=true  --num=$entry_count --zipfian=1 --zipf_const=$skewness \
                     --key_size=16 --value_size=1024 --compression_type=none --compression_ratio=1 \
                     --enable_blob_files=true --enable_blob_garbage_collection=true \
@@ -33,7 +33,7 @@ do
 
     # diffkv
     rm -rf /users/peiqi714/test/db/*
-    ./titandb_bench --benchmarks=fillrandom,stats,overwrite,stats,overwrite,stats,overwrite,stats  --db=/users/peiqi714/test/db/db --threads=$thread_count \
+    ./titandb_bench --benchmarks=fillrandom,stats,overwrite,stats  --db=/users/peiqi714/test/db/db --threads=$thread_count \
                     --statistics=true  --num=$entry_count --zipfian=1 --zipf_const=$skewness \
                     --key_size=16 --value_size=1024 --compression_type=none \
                     --level_compaction_dynamic_level_bytes=true --titan_level_merge=true --titan_disable_background_gc=true \
@@ -47,7 +47,7 @@ do
 
     # titan
     rm -rf /users/peiqi714/test/db/*
-    ./titandb_bench --benchmarks=fillrandom,stats,overwrite,stats,overwrite,stats,overwrite,stats  --db=/users/peiqi714/test/db/db --threads=$thread_count \
+    ./titandb_bench --benchmarks=fillrandom,stats,overwrite,stats  --db=/users/peiqi714/test/db/db --threads=$thread_count \
                     --statistics=true  --num=$entry_count --zipfian=1 --zipf_const=$skewness \
                     --key_size=16 --value_size=1024 --compression_type=none \
                     --titan_blob_file_discardable_ratio=0.3 --target_file_size_base=4194304 \
@@ -60,7 +60,7 @@ do
 
     # shadow
     rm -rf /users/peiqi714/test/db/*
-    ./titandb_bench --benchmarks=fillrandom,stats,overwrite,stats,overwrite,stats,overwrite,stats  --db=/users/peiqi714/test/db/db --threads=$thread_count \
+    ./titandb_bench --benchmarks=fillrandom,stats,overwrite,stats  --db=/users/peiqi714/test/db/db --threads=$thread_count \
                     --statistics=true  --num=$entry_count --zipfian=1 --zipf_const=$skewness \
                     --key_size=16 --value_size=1024 --compression_type=none \
                     --titan_drop_key_bitset=1 --titan_shadow_cache=1 \
