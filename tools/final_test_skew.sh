@@ -3,7 +3,7 @@ rm -rf /users/peiqi714/test/skew_log/*
 rm -rf /users/peiqi714/test/db/*
 thread_count=1
 echo "start final exp skew"
-for skewness in 0 0.3 0.6 1.2 
+for skewness in 0.3 0.5 0.7 0.9 0.99
 do
     entry_count=$((50000000/(1024 / 1024)))
     echo "entry count: $entry_count"
